@@ -121,3 +121,37 @@ Everything we proposed happens locally on your machine/server.
 *Total Latency: ~4.53 seconds*
 
 By adding an imperceptible **30 milliseconds** of local processing time upfront, we gain the ability to drop response times to **near-zero** for repeat/similar questions, while eliminating thousands of API calls.
+
+---
+
+## 🛠️ Setup & Deployment Guide
+
+### Local Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/singhharsh77/hellorecruiter_Assessment.git
+   cd hellorecruiter_Assessment
+   ```
+2. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Configure API Key:**
+   Copy the `.env.example` file to `.env` and add your Google Gemini API key:
+   ```bash
+   cp .env.example .env
+   # Edit .env and replace with your actual GEMINI_API_KEY
+   ```
+4. **Run the App:**
+   ```bash
+   streamlit run app.py
+   ```
+   *(Note: The very first time you ask a question, the app will pause for a minute to download the 80MB local semantic embedding model. After that, it will respond instantly.)*
+
+### Cloud Deployment (Railway.app)
+Because this app relies on a self-feeding Local Database (`ChromaDB`) to save money and latency, it requires **Permanent Storage** when deployed to the cloud. You cannot use standard serverless platforms.
+
+1. **Deploy from GitHub:** Go to [Railway.app](https://railway.app/), create a "New Project", and select "Deploy from GitHub repo". Point it to your repository. Railway will detect the included `railway.json` and start the server automatically.
+2. **Add API Key:** In the Railway dashboard for your service, go to **Variables**, add a new variable called `GEMINI_API_KEY`, and paste your key.
+3. **Attach Permanent Storage (Crucial):** Go to the **Settings** tab of your service, scroll down to **Volumes**, click "Add Volume", and set the **Mount Path** to `/app/local_db`. If you skip this, your cache will be wiped clean every time the server restarts!
+4. **Generate Domain:** In the **Networking** section of the Settings tab, click "Generate Domain" to get your public URL.
