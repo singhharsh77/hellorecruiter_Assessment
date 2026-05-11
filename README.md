@@ -124,6 +124,16 @@ By adding an imperceptible **30 milliseconds** of local processing time upfront,
 
 ---
 
+## ScreenShorts
+### Local
+<img width="1440" height="855" alt="Screenshot 2026-05-12 at 3 40 58 AM" src="https://github.com/user-attachments/assets/ddcf05e2-e112-4e88-92af-b6db8b75462e" />
+<img width="1437" height="858" alt="Screenshot 2026-05-12 at 3 40 23 AM" src="https://github.com/user-attachments/assets/d2eaf6d7-1c65-41bb-858f-3b5ad0796a89" />
+<img width="1434" height="857" alt="Screenshot 2026-05-12 at 3 39 34 AM" src="https://github.com/user-attachments/assets/fe2d4f66-1ccf-48c2-88c4-e105093426fd" />
+
+### Live
+<img width="1440" height="900" alt="Screenshot 2026-05-12 at 3 41 11 AM" src="https://github.com/user-attachments/assets/5968ab07-f949-4a44-8d83-68749eb862ce" />
+
+
 ## 🛠️ Setup & Deployment Guide
 
 ### Local Setup
