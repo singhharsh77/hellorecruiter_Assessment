@@ -51,6 +51,25 @@ Because we need to know the complexity of the question *before* we pick which mo
 
 ---
 
+**Q: How many API calls are we *now* making with the Phase 4 upgrades?**
+
+**A:** With our new Phase 4 architecture, we have drastically reduced the number of API calls! 
+
+**Scenario 1: You ask a repeat or similar question** (Cache Hit)
+* Local Semantic Check: Uses the free local database.
+* Classification: Skipped.
+* Generation: Served from the local database.
+* **Total API Calls: 0**
+
+**Scenario 2: You ask a brand new question** (Cache Miss)
+* Classification: Uses the free offline `scikit-learn` Machine Learning model. (0 API calls)
+* Generation: Calls Gemini Flash/Pro to get the answer. (1 API call)
+* **Total API Calls: 1**
+
+So we dropped from a guaranteed **2 API calls** per question down to a maximum of **1 API call** (and **0** if the question was cached). That is a 50% to 100% cost reduction per user!
+
+---
+
 **Q: Why didn't we use RAG or REGX?**
 
 **A:** That's a fantastic architectural question!
